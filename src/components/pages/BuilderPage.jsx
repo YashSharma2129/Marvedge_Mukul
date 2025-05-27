@@ -117,11 +117,11 @@ const BuilderPage = () => {
   };
 
   return (
-     <div className={`min-h-screen ${emeraldGradient} bg-fixed`}>
-      <div className="w-full max-w-[1500px] mx-auto py-10 px-2 sm:px-6 flex flex-col md:flex-row gap-6 items-start ml-36">
-      {/* Main Preview - smaller width and height */}
-        <div className="flex-1 min-w-[340px] max-w-[650px] bg-white/95 rounded-3xl shadow-2xl p-10 flex flex-col items-center border border-emerald-100">
-          <div className="w-full aspect-[16/5] rounded-2xl overflow-hidden mb-10 border-4 border-emerald-200 shadow-lg">
+    <div className={`min-h-screen ${emeraldGradient} bg-fixed`}>
+      <div className="w-full max-w-[1500px] mx-auto py-10 px-2 sm:px-6 flex flex-col md:flex-row gap-6 items-start md:ml-36">
+        {/* Main Preview */}
+        <div className="w-full md:flex-1 min-w-[0] max-w-full md:min-w-[340px] md:max-w-[650px] bg-white/95 rounded-3xl shadow-2xl p-4 sm:p-8 md:p-10 flex flex-col items-center border border-emerald-100">
+          <div className="w-full aspect-[16/5] rounded-2xl overflow-hidden mb-6 sm:mb-10 border-4 border-emerald-200 shadow-lg">
             {steps[currentStep]?.mediaType === 'image' ? (
               <img
                 src={steps[currentStep]?.mediaUrl}
@@ -137,17 +137,17 @@ const BuilderPage = () => {
               />
             )}
           </div>
-          <h2 className="text-2xl font-bold text-emerald-700 mb-2 text-center w-full">{steps[currentStep]?.title}</h2>
-          <p className="text-gray-700 text-base mb-10 text-center w-full">{steps[currentStep]?.description}</p>
-          <div className="flex items-center justify-between w-full mt-auto mb-8">
+          <h2 className="text-xl sm:text-2xl font-bold text-emerald-700 mb-2 text-center w-full">{steps[currentStep]?.title}</h2>
+          <p className="text-gray-700 text-base mb-6 sm:mb-10 text-center w-full">{steps[currentStep]?.description}</p>
+          <div className="flex flex-col sm:flex-row items-center justify-between w-full mt-auto mb-6 sm:mb-8 gap-4 sm:gap-0">
             <button
               onClick={prevStep}
-              className="flex items-center gap-2 px-5 py-2.5 rounded-lg bg-emerald-100 text-emerald-700 font-semibold hover:bg-emerald-200 transition"
+              className="flex items-center gap-2 px-5 py-2.5 rounded-lg bg-emerald-100 text-emerald-700 font-semibold hover:bg-emerald-200 transition w-full sm:w-auto"
             >
               <ChevronLeft className="w-5 h-5" />
               Previous
             </button>
-            <div className="flex gap-2">
+            <div className="flex gap-2 my-2 sm:my-0">
               {steps.map((_, idx) => (
                 <button
                   key={idx}
@@ -162,55 +162,55 @@ const BuilderPage = () => {
             </div>
             <button
               onClick={nextStep}
-              className="flex items-center gap-2 px-5 py-2.5 rounded-lg bg-emerald-100 text-emerald-700 font-semibold hover:bg-emerald-200 transition"
+              className="flex items-center gap-2 px-5 py-2.5 rounded-lg bg-emerald-100 text-emerald-700 font-semibold hover:bg-emerald-200 transition w-full sm:w-auto"
             >
               Next
               <ChevronRight className="w-5 h-5" />
             </button>
           </div>
-          <div className="flex gap-4 mb-2">
+          <div className="flex flex-col sm:flex-row gap-4 mb-2 w-full sm:w-auto">
             <button
               onClick={handlePlayDemo}
-              className={`flex items-center gap-2 px-7 py-2.5 rounded-full font-semibold shadow transition ${
+              className={`flex items-center justify-center gap-2 px-7 py-2.5 rounded-full font-semibold shadow transition ${
                 isPlaying
                   ? 'bg-red-500 text-white hover:bg-red-600'
                   : 'bg-emerald-500 text-white hover:bg-emerald-600'
-              }`}
+              } w-full sm:w-auto`}
             >
               <Play className="w-5 h-5" />
               {isPlaying ? 'Stop Demo' : 'Play Demo'}
             </button>
             <button
               onClick={() => setShowEditor(true)}
-              className="flex items-center gap-2 px-7 py-2.5 rounded-full bg-white border border-emerald-300 text-emerald-700 font-semibold hover:bg-emerald-50 transition"
+              className="flex items-center justify-center gap-2 px-7 py-2.5 rounded-full bg-white border border-emerald-300 text-emerald-700 font-semibold hover:bg-emerald-50 transition w-full sm:w-auto"
             >
               <Plus className="w-5 h-5" />
               Add Step
             </button>
           </div>
         </div>
-        {/* Steps List at right - a little wider */}
-        <div className="w-full md:w-[460px] flex-shrink-0 space-y-4">
+        {/* Steps List */}
+        <div className="w-full md:w-[460px] flex-shrink-0 space-y-4 mt-8 md:mt-0">
           <h3 className="text-xl font-bold text-emerald-800 mb-6 text-center md:text-left">Steps</h3>
           <div className="space-y-4">
             {steps.map((step, idx) => (
               <div
                 key={step.id}
-                className={`flex items-center justify-between p-5 rounded-2xl cursor-pointer border transition ${
+                className={`flex flex-col sm:flex-row items-center justify-between p-4 sm:p-5 rounded-2xl cursor-pointer border transition ${
                   idx === currentStep
                     ? 'bg-emerald-100 border-emerald-400 shadow'
                     : 'bg-white border-emerald-100 hover:bg-emerald-50'
                 }`}
                 onClick={() => goToStep(idx)}
               >
-                <div className="flex items-center gap-4">
+                <div className="flex items-center gap-4 w-full sm:w-auto mb-2 sm:mb-0">
                   <span className="w-8 h-8 rounded-full bg-emerald-400 text-white flex items-center justify-center font-bold">{idx + 1}</span>
                   <div>
                     <div className="font-semibold text-emerald-700">{step.title}</div>
-                    <div className="text-xs text-gray-500 truncate max-w-[260px]">{step.description}</div>
+                    <div className="text-xs text-gray-500 truncate max-w-[180px] sm:max-w-[260px]">{step.description}</div>
                   </div>
                 </div>
-                <div className="flex gap-2">
+                <div className="flex gap-2 w-full sm:w-auto justify-end">
                   <button
                     onClick={e => { e.stopPropagation(); goToStep(idx); }}
                     className="p-2 rounded-lg hover:bg-emerald-100 text-emerald-600"
@@ -241,7 +241,7 @@ const BuilderPage = () => {
       {/* Editor Modal */}
       {showEditor && (
         <div className="fixed inset-0 bg-black/50 flex items-center justify-center z-50">
-          <div className="bg-white rounded-2xl shadow-2xl p-8 w-full max-w-md border border-emerald-100">
+          <div className="bg-white rounded-2xl shadow-2xl p-6 sm:p-8 w-full max-w-md border border-emerald-100">
             <h3 className="text-xl font-bold mb-4 text-emerald-700">{editingStep ? 'Edit Step' : 'Add Step'}</h3>
             <div className="space-y-4">
               <div>

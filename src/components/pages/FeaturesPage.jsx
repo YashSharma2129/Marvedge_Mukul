@@ -1,5 +1,5 @@
 import React from 'react';
-import { MousePointerClick, Image, Edit3, Sparkles, Smartphone, SunMoon } from 'lucide-react';
+import { MousePointerClick, Image, Edit3, Sparkles, Smartphone, Shuffle } from 'lucide-react';
 
 const FeaturesPage = () => (
   <div className="bg-white min-h-screen">
@@ -49,10 +49,10 @@ const FeaturesPage = () => (
           </p>
         </div>
         <div className="flex flex-col items-center bg-emerald-50 rounded-xl p-8 shadow hover:shadow-lg transition">
-          <SunMoon className="h-10 w-10 text-emerald-500 mb-3" />
-          <h3 className="text-xl font-semibold text-emerald-700 mb-2">Light & Dark Mode</h3>
+          <Shuffle className="h-10 w-10 text-emerald-500 mb-3" />
+          <h3 className="text-xl font-semibold text-emerald-700 mb-2">Easy Flow Management</h3>
           <p className="text-gray-600 text-center">
-            Switch between light dark themes for a personalized experience.
+            Effortlessly rearrange, duplicate, or remove steps to create the perfect demo flow.
           </p>
         </div>
       </div>
