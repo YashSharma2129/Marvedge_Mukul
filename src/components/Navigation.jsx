@@ -33,7 +33,7 @@ const Navigation = ({ currentPage, setCurrentPage, isMenuOpen, setIsMenuOpen }) 
               className={`flex items-center space-x-2 px-4 py-2 rounded-xl font-medium transition-all duration-300 transform hover:scale-105 ${
                 currentPage === id 
                   ? 'bg-gradient-to-r from-emerald-500 to-teal-500 text-white shadow-lg shadow-emerald-500/25' 
-                  : 'text-gray-700 hover:bg-emerald-50 hover:text-emerald-600'
+                  : 'text-emerald-700 hover:bg-emerald-50 hover:text-emerald-600'
               }`}
             >
               <Icon className="w-4 h-4" />
@@ -63,7 +63,7 @@ const Navigation = ({ currentPage, setCurrentPage, isMenuOpen, setIsMenuOpen }) 
                 className={`w-full flex items-center space-x-3 px-4 py-3 rounded-xl font-medium transition-all duration-300 ${
                   currentPage === id 
                     ? 'bg-gradient-to-r from-emerald-500 to-teal-500 text-white' 
-                    : 'text-gray-700 hover:bg-emerald-50'
+                    : 'text-emerald-700 hover:bg-emerald-50 hover:text-emerald-600'
                 }`}
               >
                 <Icon className="w-5 h-5" />

@@ -173,7 +173,7 @@ const App = () => {
         return <FeaturesPage />;
       
       case 'analytics':
-        return <AnalyticsPage />;
+        return <AnalyticsPage setCurrentPage={setCurrentPage} />;
       case 'contact':
         return <ContactPage />;
       default:
@@ -182,19 +182,17 @@ const App = () => {
   };
 
 return (
-  <div className="min-h-screen bg-gradient-to-br from-emerald-50 via-teal-50 to-cyan-50">
-    {/* REMOVE the next line */}
-    {/* <div className="fixed top-0 left-0 right-0 h-24 bg-white z-40" /> */}
+  <div className="min-h-screen w-full bg-gradient-to-br from-emerald-50 via-teal-50 to-cyan-50">
     <Navigation
       currentPage={currentPage}
       setCurrentPage={setCurrentPage}
       isMenuOpen={isMenuOpen}
       setIsMenuOpen={setIsMenuOpen}
     />
-    <div className="pt-24">
+    <main className="min-h-screen w-full pt-20"> {/* Changed from pt-24 and added w-full */}
       {renderPage()}
-      <Footer setCurrentPage={setCurrentPage} />
-    </div>
+    </main>
+    <Footer setCurrentPage={setCurrentPage} />
   </div>
 );
 };
